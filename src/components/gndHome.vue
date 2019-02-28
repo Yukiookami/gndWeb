@@ -2,11 +2,15 @@
   <div class="home">
     <gnd-header :selectNum="selectNum"></gnd-header>
     <gnd-silde class="slide" :imgList='imgList'></gnd-silde>
-    <div class="in-main">
+    <!-- <div class="in-main">
       <gnd-home-introduce v-for="(item, index) in inList" :key="index" :title='item.title'
       :content='item.content' :titleM='item.titleM' :pos='item.pos'
       :contentM='item.contentM' :titleB="item.titleB" :contentB='item.contentB'
       :imgM='item.imgM' :imgB='item.imgB'></gnd-home-introduce>
+    </div> -->
+    <div class="project-sec">
+      <gnd-new-p-show v-for="(item, index) in pShowList" :key="index"
+      :title="item.title" :content="item.content" :img="item.img"></gnd-new-p-show>
     </div>
     <div class="line-home"></div>
     <div class="ex-sec">
@@ -50,6 +54,7 @@ import gndHomeEx from './gndHomeEx'
 import contactUs from './contactUs'
 import gndMaker from './gndMaker'
 import gndHeader from './gndHeader'
+import gndNewPShow from './gndNewPShow'
 
 export default {
   data () {
@@ -57,40 +62,87 @@ export default {
       selectNum: 0,
       imgList: [
         {
+          slideTitle: 'BIG PICTURE PURPOSE',
+          slideText: 'DISCOVERING THE HOLISTIC VALUE OF THE LAND AND CREATING MEANINGFUL EXPERIENCES AROUND IT',
           slide: require('../assets/testSilde/60082303_p0.png')
         },
         {
+          slideTitle: 'DESIGNS THAT WORK',
+          slideText: 'SOLVING PROBLEMS, OVERCOMING OBSTACLES AND CRAFTING ALTERNATIVES WHERE THERE APPEAR TO BE NONE',
           slide: require('../assets/testSilde/60207370_p0.png')
         },
         {
+          slideTitle: 'CO-AUTHORS IN THE STORY OF PLACE',
+          slideText: 'HARNESSING COLLECTIVE INNOVATION AND PIONEERING VIEWPOINTS TO ACHIEVE VALUE-BASED, FUNCTIONAL DESIGN',
           slide: require('../assets/testSilde/64035231_p0.png')
-        },
-        {
-          slide: require('../assets/testSilde/64265540_p0.png')
         }
       ],
-      inList: [
+      // inList: [
+      //   {
+      //     title: 'GND景观设计',
+      //     content: '主营业务开发商展示区景观，景观标准化定制，全周期景观规划',
+      //     imgM: 'http://www.gnd.hk/images/G_W_show_r/GND_W_0/2.jpg',
+      //     titleM: '浪漫奢华',
+      //     contentM: '欧式风格',
+      //     imgB: 'http://www.gnd.hk/images/new/jingguan/920.jpeg',
+      //     titleB: '浪漫奢华',
+      //     contentB: '欧式风格',
+      //     pos: 'left'
+      //   },
+      //   {
+      //     title: 'GND景观设计',
+      //     content: '主营业务开发商展示区景观，景观标准化定制，全周期景观规划',
+      //     imgM: 'http://www.gnd.hk/images/G_W_show_r/GND_W_0/2.jpg',
+      //     titleM: '浪漫奢华',
+      //     contentM: '欧式风格',
+      //     imgB: 'http://www.gnd.hk/images/new/jingguan/920.jpeg',
+      //     titleB: '浪漫奢华',
+      //     contentB: '欧式风格',
+      //     pos: 'right'
+      //   }
+      // ],
+      pShowList: [
         {
-          title: 'GND景观设计',
-          content: '主营业务开发商展示区景观，景观标准化定制，全周期景观规划',
-          imgM: 'http://www.gnd.hk/images/G_W_show_r/GND_W_0/2.jpg',
-          titleM: '浪漫奢华',
-          contentM: '欧式风格',
-          imgB: 'http://www.gnd.hk/images/new/jingguan/920.jpeg',
-          titleB: '浪漫奢华',
-          contentB: '欧式风格',
-          pos: 'left'
+          title: 'PLANNING',
+          content: `Planning is a dynamic process of discovery. It entails translating our client's vision into an implementable strategy, providing a framework in which alternatives are evaluated, capacity is determined, feasibility is tested, and a course is set.
+<br>
+Site Selection<br>
+Site Analysis<br>
+Visioning Workshops<br>
+Land Use Program/Feasibility Studies<br>
+Site Specific Plans<br>
+Design Guidelines<br>
+Entitlements`,
+          img: 'https://www.edsaplan.com/wp-content/uploads/2018/02/Planning-1-e1517790225506.jpg'
         },
         {
-          title: 'GND景观设计',
-          content: '主营业务开发商展示区景观，景观标准化定制，全周期景观规划',
-          imgM: 'http://www.gnd.hk/images/G_W_show_r/GND_W_0/2.jpg',
-          titleM: '浪漫奢华',
-          contentM: '欧式风格',
-          imgB: 'http://www.gnd.hk/images/new/jingguan/920.jpeg',
-          titleB: '浪漫奢华',
-          contentB: '欧式风格',
-          pos: 'right'
+          title: 'LANDSCAPE ARCHITECTURE',
+          content: `Exceptional design balances the past, present, and future. Our designs capture the spirit, culture, and existing environment of each locale, providing a foundation for memorable experiences.
+<br>
+Site Design<br>
+Concept /Theming<br>
+Design Development<br>
+Hardscape/Water Feature Design<br>
+Planting Design<br>
+Construction Documents<br>
+Construction Period Services`,
+          img: 'https://www.edsaplan.com/wp-content/uploads/2018/02/Castiglion-del-Bosco-210_LandscapArchitecture-e1517793210776.jpg'
+        },
+        {
+          title: 'URBAN DESIGN',
+          content: `Through careful planning and analysis, our urban projects provide optimal benefits to the surrounding community while addressing the complexities and intricate relationships that tie our cities together.
+<br>
+Downtown Planning<br>
+Mixed-Use Neighborhoods<br>
+Open Space Design<br>
+Public Participation / Consensus Building<br>
+Retail Environments<br>
+Streetscapes<br>
+Transit Oriented Design<br>
+Urban Parks and Plazas<br>
+Vision Plans<br>
+Waterfront Revitalization`,
+          img: 'https://www.edsaplan.com/wp-content/uploads/2018/02/Al-Maryah-Central_UrbanDesign-e1517793178309.jpg'
         }
       ],
       exList: [
@@ -161,7 +213,8 @@ export default {
     gndHomeEx,
     contactUs,
     gndMaker,
-    gndHeader
+    gndHeader,
+    gndNewPShow
   }
 }
 </script>
@@ -233,5 +286,12 @@ export default {
   justify-content: space-between;
   margin: 0 auto;
   width: 63%;
+}
+
+.project-sec {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0;
 }
 </style>
