@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import gndSilde from './gndSlide'
+import gndSilde from './gndVideoMask'
 import gndHomeIntroduce from './gndHomeIntroduce'
 import lineF from './lineF'
 import gndHomeEx from './gndHomeEx'
