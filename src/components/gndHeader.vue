@@ -1,5 +1,6 @@
 <template>
-  <div class="header" :class="{'header-change': check === 1, 'header-fix': selectNum !== 0}">
+  <div class="header" :class="{'header-change': check === 1,
+  'header-fix': selectNum !== 0, 'head-fixed': selectNum !== 0}">
     <div>
       <img class="logo" src="../assets/logo1.png" alt="">
     </div>
@@ -145,16 +146,20 @@ export default {
 }
 
 .header {
+  position: relative;
   display: flex;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   justify-content: space-around;
   align-items: center;
   height: 10rem;
   z-index: 999;
   background-color: #fff;
+}
+
+.head-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .header-fix {
@@ -302,5 +307,15 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 
 .select-item {
   color: #FFF;
+}
+
+@media screen and (max-width: 1500px) {
+  nav {
+    width: 50%
+  }
+
+  .project-mask {
+    left: 31%;
+  }
 }
 </style>

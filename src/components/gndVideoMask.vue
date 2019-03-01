@@ -55,7 +55,6 @@ export default {
   justify-content: center;
   align-items: center;
   position: relative;
-  margin-top: 10rem;
   height: 100vh;
   width: 100vw;
   background: rgba(77,124,142,0.7);

@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <gnd-header :selectNum="selectNum"></gnd-header>
     <gnd-silde class="slide" :imgList='imgList'></gnd-silde>
+    <gnd-header :selectNum="selectNum"></gnd-header>
     <!-- <div class="in-main">
       <gnd-home-introduce v-for="(item, index) in inList" :key="index" :title='item.title'
       :content='item.content' :titleM='item.titleM' :pos='item.pos'
@@ -224,9 +224,9 @@ Waterfront Revitalization`,
   font-family: 微软雅黑, Arial, sans-serif
 }
 
-.home {
+/* .home {
   margin-top: 6rem;
-}
+} */
 
 .slide {
   height: 948px;
@@ -292,6 +292,5 @@ Waterfront Revitalization`,
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 2rem 0;
 }
 </style>
