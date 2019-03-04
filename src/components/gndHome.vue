@@ -2,16 +2,16 @@
   <div class="home">
     <gnd-silde class="slide" :imgList='imgList'></gnd-silde>
     <gnd-header :selectNum="selectNum"></gnd-header>
-    <!-- <div class="in-main">
+    <div class="in-main">
       <gnd-home-introduce v-for="(item, index) in inList" :key="index" :title='item.title'
       :content='item.content' :titleM='item.titleM' :pos='item.pos'
       :contentM='item.contentM' :titleB="item.titleB" :contentB='item.contentB'
       :imgM='item.imgM' :imgB='item.imgB'></gnd-home-introduce>
-    </div> -->
-    <div class="project-sec">
+    </div>
+    <!-- <div class="project-sec">
       <gnd-new-p-show v-for="(item, index) in pShowList" :key="index"
       :title="item.title" :content="item.content" :img="item.img"></gnd-new-p-show>
-    </div>
+    </div> -->
     <div class="line-home"></div>
     <div class="ex-sec">
       <div class="text-box">
@@ -77,30 +77,41 @@ export default {
           slide: require('../assets/testSilde/64035231_p0.png')
         }
       ],
-      // inList: [
-      //   {
-      //     title: 'GND景观设计',
-      //     content: '主营业务开发商展示区景观，景观标准化定制，全周期景观规划',
-      //     imgM: 'http://www.gnd.hk/images/G_W_show_r/GND_W_0/2.jpg',
-      //     titleM: '浪漫奢华',
-      //     contentM: '欧式风格',
-      //     imgB: 'http://www.gnd.hk/images/new/jingguan/920.jpeg',
-      //     titleB: '浪漫奢华',
-      //     contentB: '欧式风格',
-      //     pos: 'left'
-      //   },
-      //   {
-      //     title: 'GND景观设计',
-      //     content: '主营业务开发商展示区景观，景观标准化定制，全周期景观规划',
-      //     imgM: 'http://www.gnd.hk/images/G_W_show_r/GND_W_0/2.jpg',
-      //     titleM: '浪漫奢华',
-      //     contentM: '欧式风格',
-      //     imgB: 'http://www.gnd.hk/images/new/jingguan/920.jpeg',
-      //     titleB: '浪漫奢华',
-      //     contentB: '欧式风格',
-      //     pos: 'right'
-      //   }
-      // ],
+      inList: [
+        {
+          title: 'GND景观设计1',
+          content: '主营业务开发商展示区景观，景观标准化定制，全周期景观规划',
+          imgM: 'http://www.gnd.hk/images/G_W_show_r/GND_W_0/2.jpg',
+          titleM: '浪漫奢华',
+          contentM: '欧式风格',
+          imgB: 'http://www.gnd.hk/images/new/jingguan/920.jpeg',
+          titleB: '浪漫奢华',
+          contentB: '欧式风格',
+          pos: 'left'
+        },
+        {
+          title: 'GND景观设计2',
+          content: '主营业务开发商展示区景观，景观标准化定制，全周期景观规划',
+          imgM: 'http://www.gnd.hk/images/G_W_show_r/GND_W_0/2.jpg',
+          titleM: '浪漫奢华',
+          contentM: '欧式风格',
+          imgB: 'http://www.gnd.hk/images/new/jingguan/920.jpeg',
+          titleB: '浪漫奢华',
+          contentB: '欧式风格',
+          pos: 'right'
+        },
+        {
+          title: 'GND景观设计3',
+          content: '主营业务开发商展示区景观，景观标准化定制，全周期景观规划',
+          imgM: 'http://www.gnd.hk/images/G_W_show_r/GND_W_0/2.jpg',
+          titleM: '浪漫奢华',
+          contentM: '欧式风格',
+          imgB: 'http://www.gnd.hk/images/new/jingguan/920.jpeg',
+          titleB: '浪漫奢华',
+          contentB: '欧式风格',
+          pos: 'right'
+        }
+      ],
       pShowList: [
         {
           title: 'PLANNING',
@@ -147,17 +158,17 @@ Waterfront Revitalization`,
       ],
       exList: [
         {
-          title: '室内产品研发',
+          title: '室内产品研发1',
           content: '设计师运用物质技术手段和建筑设计原理,创造既具有使用价值，满足相应的功能要求，同时也反映了历史文脉、建筑风格、环境气 氛等精神因素',
           img: 'http://www.gnd.hk/images/675.jpg'
         },
         {
-          title: '室内产品研发',
+          title: '室内产品研发2',
           content: 'GND结合一线开发商超过60个主流住宅产品的调研，形成了一套严谨的产品逻辑和设计思路。 根据不同地产商的产品类型与开发需求，结合设计，成本，营销，工程，物业能不同的部门的联动，能够最大化的保证不同产品类型的有效系列化和高品质高效率落地',
           img: 'http://www.gnd.hk/images/675.jpg'
         },
         {
-          title: '室内产品研发',
+          title: '室内产品研发3',
           content: '设计师运用物质技术手段和建筑设计原理,创造既具有使用价值，满足相应的功能要求，同时也反映了历史文脉、建筑风格、环境气 氛等精神因素',
           img: 'http://www.gnd.hk/images/675.jpg'
         }
@@ -200,6 +211,13 @@ Waterfront Revitalization`,
       // 控制gndMaker组件
       show: 0
     }
+  },
+  mounted () {
+    function sortRandom (a, b) {
+      return Math.random() > 0.5 ? 1 : -1
+    }
+    this.inList.sort(sortRandom)
+    this.exList.sort(sortRandom)
   },
   methods: {
     changeShow (index) {
@@ -292,5 +310,11 @@ Waterfront Revitalization`,
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media screen and (max-width: 1500px) {
+  .in-main {
+    width: 85%;
+  }
 }
 </style>
