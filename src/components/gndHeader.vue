@@ -90,10 +90,11 @@ export default {
     //   sessionStorage.setItem('selectNum', 0)
     // }
     // this.selectNumL = parseInt(sessionStorage.getItem('selectNum'))
-    // 判断页面是否在顶端
+    // 判断页面是否在顶端是否固定header
     if (this.selectNum === 0) {
       window.onscroll = function () {
-        if (document.body.scrollTop === 0 && document.documentElement.scrollTop === 0) {
+        if (document.body.scrollTop === 0 &&
+        document.documentElement.scrollTop <= window.innerHeight) {
           that.check = 0
         } else {
           that.check = 1
@@ -167,6 +168,10 @@ export default {
 }
 
 .header-change {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 6rem;
   transition: all ease-in-out .35s
 }
