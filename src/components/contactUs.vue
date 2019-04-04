@@ -10,8 +10,8 @@
     </div>
     <div class="contact-box multimedia">
       <h3>{{contactTitle}}</h3>
-      <span>电话(086) {{contactP}}</span>
-      <span>传真(086) {{contactC}}</span>
+      <span>{{contactP}}</span>
+      <span>{{contactC}}</span>
       <span>Email {{contactE}}</span>
     </div>
     <div v-if="selectNum === 0" class="contact-box">
@@ -30,15 +30,14 @@
 
 <script>
 import contactIcon from './contactIcon'
+import {getAPI} from '../assets/js/API.js'
 
 export default {
   props: ['selectNum'],
   data () {
     return {
       adsTitle: '地址',
-      ads: `中国 广东省深圳市<br>
-          罗湖区笋岗街道宝安北路3002号<br>
-          宝能慧谷C座13A层39号`,
+      ads: '',
       workTitle: '办公时间',
       work: '周一 - 周五 上午9：00 - 下午5：00',
       contactTitle: '联系我们',
@@ -71,6 +70,15 @@ export default {
         }
       ]
     }
+  },
+  mounted () {
+    this.$http.get(`${getAPI()}/company/getCompanyContactInfo`).then(res => {
+      let getData = res.data.data
+      this.ads = getData.address
+      this.contactE = getData.email
+      this.contactC = getData.fax
+      this.contactP = getData.phone
+    })
   },
   components: {
     contactIcon

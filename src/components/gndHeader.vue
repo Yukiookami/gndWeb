@@ -85,7 +85,7 @@ export default {
   },
   mounted: function () {
     var that = this
-    // // 初始化nav选定
+    // 初始化nav选定
     // if (isNaN(parseInt(sessionStorage.getItem('selectNum')))) {
     //   sessionStorage.setItem('selectNum', 0)
     // }

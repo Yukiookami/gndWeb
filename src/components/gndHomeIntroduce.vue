@@ -1,6 +1,6 @@
 <template>
   <div class="in-box">
-    <div v-if="pos === 'left'" class="img-mask">
+    <div v-if="!(index % 2)" class="img-mask">
       <img class="imgB" :src="imgB" alt="">
       <gnd-mask :title="titleB" :img='imgB' :content='contentB'></gnd-mask>
     </div>
@@ -17,7 +17,7 @@
         <gnd-mask :title='titleM' :img='imgM' :content='contentM'></gnd-mask>
       </div>
     </div>
-    <div v-if="pos === 'right'" class="img-mask">
+    <div v-if="index % 2" class="img-mask">
       <img class="imgB" :src="imgB" alt="">
       <gnd-mask :title="titleB" :img='imgB' :content='contentB'></gnd-mask>
     </div>
@@ -30,7 +30,7 @@ import lineF from './lineF'
 
 export default {
   props: ['title', 'imgM', 'imgB', 'content', 'titleM', 'titleB',
-    'contentM', 'contentB', 'pos'],
+    'contentM', 'contentB', 'index'],
   data () {
     return {
 

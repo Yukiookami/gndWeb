@@ -3,15 +3,11 @@
     <gnd-silde class="slide" :imgList='imgList'></gnd-silde>
     <gnd-header :selectNum="selectNum"></gnd-header>
     <div class="in-main">
-      <gnd-home-introduce v-for="(item, index) in inList" :key="index" :title='item.title'
-      :content='item.content' :titleM='item.titleM' :pos='item.pos'
-      :contentM='item.contentM' :titleB="item.titleB" :contentB='item.contentB'
-      :imgM='item.imgM' :imgB='item.imgB'></gnd-home-introduce>
+      <gnd-home-introduce v-for="(item, index) in inList" :key="index" :title='item.name'
+      :content='item.content' :titleM='item.indexProject1' :index='index'
+      :contentM='item.contentM' :titleB="item.indexProject2" :contentB='item.contentB'
+      :imgM='item.indexProjectImage1' :imgB='item.indexProjectImage2'></gnd-home-introduce>
     </div>
-    <!-- <div class="project-sec">
-      <gnd-new-p-show v-for="(item, index) in pShowList" :key="index"
-      :title="item.title" :content="item.content" :img="item.img"></gnd-new-p-show>
-    </div> -->
     <div class="line-home"></div>
     <div class="ex-sec">
       <div class="text-box">
@@ -19,10 +15,14 @@
         <line-f></line-f>
         <h3 class="ex-con">{{exCon}}</h3>
       </div>
-      <div class="ex-box-sec">
+      <div class="project-sec">
+        <gnd-new-p-show v-for="(item, index) in pShowList" :key="index"
+        :title="item.title" :content="item.content" :img="item.img"></gnd-new-p-show>
+      </div>
+      <!-- <div class="ex-box-sec">
         <gnd-home-ex v-for="(item, index) in exList" :key="index"
         :img='item.img' :content='item.content' :title="item.title"></gnd-home-ex>
-      </div>
+      </div> -->
     </div>
     <div class="maker-sec">
       <div class="text-box">
@@ -55,6 +55,7 @@ import contactUs from './contactUs'
 import gndMaker from './gndMaker'
 import gndHeader from './gndHeader'
 import gndNewPShow from './gndNewPShow'
+import {getAPI} from '../assets/js/API.js'
 
 export default {
   data () {
@@ -77,41 +78,7 @@ export default {
           slide: require('../assets/testSilde/64035231_p0.png')
         }
       ],
-      inList: [
-        {
-          title: 'GND景观设计1',
-          content: '主营业务开发商展示区景观，景观标准化定制，全周期景观规划',
-          imgM: 'http://www.gnd.hk/images/G_W_show_r/GND_W_0/2.jpg',
-          titleM: '浪漫奢华',
-          contentM: '欧式风格',
-          imgB: 'http://www.gnd.hk/images/new/jingguan/920.jpeg',
-          titleB: '浪漫奢华',
-          contentB: '欧式风格',
-          pos: 'left'
-        },
-        {
-          title: 'GND景观设计2',
-          content: '主营业务开发商展示区景观，景观标准化定制，全周期景观规划',
-          imgM: 'http://www.gnd.hk/images/G_W_show_r/GND_W_0/2.jpg',
-          titleM: '浪漫奢华',
-          contentM: '欧式风格',
-          imgB: 'http://www.gnd.hk/images/new/jingguan/920.jpeg',
-          titleB: '浪漫奢华',
-          contentB: '欧式风格',
-          pos: 'right'
-        },
-        {
-          title: 'GND景观设计3',
-          content: '主营业务开发商展示区景观，景观标准化定制，全周期景观规划',
-          imgM: 'http://www.gnd.hk/images/G_W_show_r/GND_W_0/2.jpg',
-          titleM: '浪漫奢华',
-          contentM: '欧式风格',
-          imgB: 'http://www.gnd.hk/images/new/jingguan/920.jpeg',
-          titleB: '浪漫奢华',
-          contentB: '欧式风格',
-          pos: 'right'
-        }
-      ],
+      inList: [],
       pShowList: [
         {
           title: 'PLANNING',
@@ -205,7 +172,7 @@ Waterfront Revitalization`,
         }
       ],
       exTitle: '公司特色',
-      exCon: '标准化设计施工',
+      exCon: '项目精选',
       markerTitle: 'GND全体主创',
       contentTitle: '联系我们 ',
       // 控制gndMaker组件
@@ -213,11 +180,17 @@ Waterfront Revitalization`,
     }
   },
   mounted () {
+    this.$http.get(`${getAPI()}/department/getIndexDepartment`).then(res => {
+      let getData = res.data.data
+      this.inList = getData
+    })
+
     function sortRandom (a, b) {
       return Math.random() > 0.5 ? 1 : -1
     }
     this.inList.sort(sortRandom)
     this.exList.sort(sortRandom)
+    this.makerList.sort(sortRandom)
   },
   methods: {
     changeShow (index) {
@@ -310,6 +283,7 @@ Waterfront Revitalization`,
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 2rem;
 }
 
 @media screen and (max-width: 1500px) {

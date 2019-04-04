@@ -19,9 +19,9 @@
         <gnd-mask :title="item.title"></gnd-mask>
       </div>
     </div>
-    <div class="con-box">
+    <!-- <div class="con-box">
       <contact-us :selectNum="selectNum"></contact-us>
-    </div>
+    </div> -->
     <div class="hezuo">
       <h3 class="title-h">{{titleH}}</h3>
       <span class="content-h">{{contentH}}</span>

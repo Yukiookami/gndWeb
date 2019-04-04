@@ -2,7 +2,7 @@
   <div>
     <gnd-header :selectNum='selectNum'></gnd-header>
     <div class="content-sec">
-      <div class="gnd-new" v-if="gndTitle !== ''">
+      <!-- <div class="gnd-new" v-if="gndTitle !== ''">
         <span>{{gndNew}}</span>
         <line-f></line-f>
         <h3>{{gndTitle}}</h3>
@@ -18,7 +18,7 @@
       <div class="rua">
         <h3>{{pTitle}}</h3>
         <span>{{pContent}}</span>
-      </div>
+      </div> -->
       <section class="class-button-sec">
         <class-button v-on:changeType='changeType' :className='item.name' :index='index'
         v-for="(item, index) in newClass" :changeTypeNum='changeTypeNumL'
